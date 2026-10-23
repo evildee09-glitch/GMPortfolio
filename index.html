@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,6 +23,24 @@
 
     <link rel="canonical" href="https://evildee09-glitch.github.io/GMPortfolio/Portfolio/">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'Monaco', 'monospace'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- External CSS -->
     <link rel="stylesheet" href="style.css">
 
     <script type="application/ld+json">
@@ -41,356 +59,471 @@
     }
     </script>
 </head>
-<body>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased overflow-hidden h-screen flex flex-col">
 
-<nav class="navbar" aria-label="Main navigation">
-    <div class="container nav-container">
-        <a href="#" class="logo">GM<span>.</span></a>
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#contact" class="nav-cta">Contact</a></li>
-        </ul>
+    <!-- Header Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-30 p-4 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/80">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <a href="#hero" class="text-xl font-extrabold text-white tracking-wider flex items-center gap-1">
+                GM<span class="text-cyan-400">.</span>
+            </a>
+            <nav aria-label="Main navigation">
+                <ul class="flex items-center gap-4 sm:gap-6 text-xs sm:text-sm font-medium text-slate-300">
+                    <li><a href="#about" class="hover:text-cyan-400 transition-colors">About</a></li>
+                    <li><a href="#skills" class="hover:text-cyan-400 transition-colors">Skills</a></li>
+                    <li><a href="#projects" class="hover:text-cyan-400 transition-colors">Projects</a></li>
+                    <li><a href="#experience" class="hover:text-cyan-400 transition-colors">Experience</a></li>
+                    <li><a href="#contact" class="px-3 py-1.5 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white font-semibold transition-all shadow-md shadow-cyan-900/40">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Scroll Viewport Container -->
+    <div id="scrollViewport" class="scroll-viewport flex-1 h-full relative z-10 pt-16">
+        
+        <!-- Ambient Background Glow Elements -->
+        <div class="fixed inset-0 pointer-events-none z-0">
+            <div class="glow-orb glow-orb-1"></div>
+            <div class="glow-orb glow-orb-2"></div>
+            <div class="absolute inset-0 video-grid-overlay opacity-30"></div>
+        </div>
+
+        <!-- HERO SECTION -->
+        <section id="hero" class="story-beat min-h-screen relative flex items-center justify-center p-6 sm:p-12">
+            <div class="max-w-4xl mx-auto text-center space-y-6 reveal-item">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/80 border border-slate-700 backdrop-blur text-xs text-slate-300">
+                    <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                    <span>IT Specialist & Systems Engineer</span>
+                </div>
+
+                <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white leading-tight">
+                    Glenvee <span class="bg-gradient-to-r from-cyan-400 via-teal-300 to-pink-500 bg-clip-text text-transparent">Macasarte</span>
+                </h1>
+
+                <p class="text-lg sm:text-2xl font-semibold text-cyan-300">
+                    IT Specialist | Backend Developer | System Administrator
+                </p>
+
+                <p class="text-slate-400 text-base sm:text-xl max-w-2xl mx-auto leading-relaxed italic">
+                    "Building scalable alert systems, robust infrastructure &amp; cloud solutions"
+                </p>
+
+                <div class="flex justify-center gap-4 pt-4">
+                    <a href="#projects" class="px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-semibold text-sm transition-all shadow-lg shadow-cyan-900/40">View Projects</a>
+                    <a href="#contact" class="px-6 py-3 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 text-white font-semibold text-sm transition-all">Get In Touch</a>
+                </div>
+
+                <div class="pt-8 flex flex-col items-center gap-2 text-slate-500 animate-bounce">
+                    <span class="text-[10px] tracking-widest uppercase font-mono">Scroll Down</span>
+                    <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT ME SECTION -->
+        <section id="about" class="story-beat min-h-screen relative flex items-center justify-center p-6 sm:p-12">
+            <div class="max-w-4xl mx-auto w-full space-y-8">
+                <div class="text-center space-y-3 reveal-item">
+                    <span class="text-xs font-mono text-cyan-400 uppercase tracking-widest">[ ABOUT ME ]</span>
+                    <h2 class="text-3xl sm:text-5xl font-bold text-white tracking-tight">Infrastructure &amp; Backend Specialist</h2>
+                </div>
+
+                <div class="reveal-item bg-slate-900/80 border border-slate-800 rounded-2xl p-6 sm:p-8 backdrop-blur space-y-6 text-slate-300 text-sm sm:text-base leading-relaxed">
+                    <p>
+                        I am a highly adaptable IT Support Professional and Developer with a Bachelor of Science in Computer Engineering from STI College Kalibo. I specialize in bridging the gap between infrastructure management and backend development.
+                    </p>
+                    <p>
+                        With extensive experience in Tier 2/3 helpdesk support, Windows/Mac environments, and custom application deployment, I excel at streamlining processes, maintaining 99.9% system uptimes, and architecting reliable cloud and local network solutions.
+                    </p>
+
+                    <div class="pt-4 border-t border-slate-800 flex flex-wrap gap-2">
+                        <span class="px-3 py-1 rounded-lg bg-slate-950 border border-cyan-500/30 text-cyan-300 text-xs font-mono">Complex Troubleshooting</span>
+                        <span class="px-3 py-1 rounded-lg bg-slate-950 border border-pink-500/30 text-pink-300 text-xs font-mono">Process Streamlining</span>
+                        <span class="px-3 py-1 rounded-lg bg-slate-950 border border-emerald-500/30 text-emerald-300 text-xs font-mono">Cloud Infrastructure</span>
+                        <span class="px-3 py-1 rounded-lg bg-slate-950 border border-amber-500/30 text-amber-300 text-xs font-mono">Access Management</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS SECTION -->
+        <section id="skills" class="story-beat min-h-screen relative flex items-center justify-center p-6 sm:p-12">
+            <div class="max-w-5xl mx-auto w-full space-y-8">
+                <div class="text-center space-y-3 reveal-item">
+                    <span class="text-xs font-mono text-pink-400 uppercase tracking-widest">[ TECHNICAL SKILLS ]</span>
+                    <h2 class="text-3xl sm:text-5xl font-bold text-white">Core Competencies</h2>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="reveal-item bg-slate-900/80 border border-slate-800 rounded-2xl p-6 backdrop-blur space-y-4 hover:border-cyan-500/50 transition-all">
+                        <h3 class="text-lg font-bold text-cyan-400">Languages</h3>
+                        <ul class="space-y-2 text-sm text-slate-300 font-mono">
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>Java</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>JavaScript</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>SQL</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>Bash / PowerShell</li>
+                        </ul>
+                    </div>
+
+                    <div class="reveal-item bg-slate-900/80 border border-slate-800 rounded-2xl p-6 backdrop-blur space-y-4 hover:border-pink-500/50 transition-all">
+                        <h3 class="text-lg font-bold text-pink-400">Tools &amp; OS</h3>
+                        <ul class="space-y-2 text-sm text-slate-300 font-mono">
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-pink-400"></span>Docker</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-pink-400"></span>Git &amp; GitHub</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-pink-400"></span>Linux (Ubuntu)</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-pink-400"></span>Windows Server / Mac OS</li>
+                        </ul>
+                    </div>
+
+                    <div class="reveal-item bg-slate-900/80 border border-slate-800 rounded-2xl p-6 backdrop-blur space-y-4 hover:border-emerald-500/50 transition-all">
+                        <h3 class="text-lg font-bold text-emerald-400">Cloud &amp; Infra</h3>
+                        <ul class="space-y-2 text-sm text-slate-300 font-mono">
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>AWS</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>DigitalOcean</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>Microsoft Azure</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>Active Directory / Entra ID</li>
+                        </ul>
+                    </div>
+
+                    <div class="reveal-item bg-slate-900/80 border border-slate-800 rounded-2xl p-6 backdrop-blur space-y-4 hover:border-amber-500/50 transition-all">
+                        <h3 class="text-lg font-bold text-amber-400">Frameworks &amp; ITSM</h3>
+                        <ul class="space-y-2 text-sm text-slate-300 font-mono">
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>Spring Boot</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>RESTful APIs</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>ITSM Ticketing Systems</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section id="projects" class="story-beat min-h-screen relative flex items-center justify-center p-6 sm:p-12">
+            <div class="max-w-6xl mx-auto w-full space-y-6">
+                <div class="text-center space-y-2 reveal-item">
+                    <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest">[ PORTFOLIO PROJECTS ]</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white">Featured Work</h2>
+                    <p class="text-xs text-slate-400">Swipe or scroll horizontally through project cases</p>
+                </div>
+
+                <!-- Horizontal Scroll Snap Cards -->
+                <div class="reveal-item flex gap-6 overflow-x-auto pb-4 pt-2 snap-x snap-mandatory scrollbar-none">
+                    
+                    <!-- Project 1 -->
+                    <article class="snap-center flex-shrink-0 w-80 sm:w-96 bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4 backdrop-blur shadow-2xl flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="rounded-xl overflow-hidden border border-slate-800">
+                                <img src="https://placehold.co/800x450/1e293b/38bdf8?text=Emergency+Alert+System" alt="Emergency Alert System sender and receiver architecture diagram" class="w-full h-40 object-cover" loading="lazy" decoding="async">
+                            </div>
+                            <h3 class="text-lg font-bold text-white">Emergency Alert System (Sender/Receiver)</h3>
+                            <p class="text-xs text-slate-400 leading-relaxed">A highly responsive alert platform designed to quickly distribute critical information across multiple endpoints.</p>
+                            <div class="p-3 bg-slate-950/80 rounded-lg text-xs text-slate-300 border border-slate-800">
+                                <strong class="text-cyan-400 block mb-1">Problem Solved:</strong>
+                                Eliminated communication bottlenecks during critical events by automating message dispatch to targeted user groups.
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 pt-2">
+                            <span class="px-2 py-0.5 rounded bg-slate-950 border border-slate-800 text-[10px] font-mono text-cyan-300">Java</span>
+                            <span class="px-2 py-0.5 rounded bg-slate-950 border border-slate-800 text-[10px] font-mono text-cyan-300">Spring Boot</span>
+                            <span class="px-2 py-0.5 rounded bg-slate-950 border border-slate-800 text-[10px] font-mono text-cyan-300">WebSockets</span>
+                        </div>
+                    </article>
+
+                    <!-- Project 2 -->
+                    <article class="snap-center flex-shrink-0 w-80 sm:w-96 bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4 backdrop-blur shadow-2xl flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="rounded-xl overflow-hidden border border-slate-800">
+                                <img src="https://placehold.co/800x450/1e293b/38bdf8?text=Server+Deployment+%26+CI/CD" alt="Docker-based server deployment and CI/CD pipeline diagram" class="w-full h-40 object-cover" loading="lazy" decoding="async">
+                            </div>
+                            <h3 class="text-lg font-bold text-white">Server Deployment &amp; CI/CD</h3>
+                            <p class="text-xs text-slate-400 leading-relaxed">Automated server provisioning and application deployment utilizing cloud infrastructure to ensure high availability.</p>
+                            <div class="p-3 bg-slate-950/80 rounded-lg text-xs text-slate-300 border border-slate-800">
+                                <strong class="text-cyan-400 block mb-1">Problem Solved:</strong>
+                                Reduced manual configuration time by 80% and minimized human error during custom application rollouts.
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 pt-2">
+                            <span class="px-2 py-0.5 rounded bg-slate-950 border border-slate-800 text-[10px] font-mono text-cyan-300">DigitalOcean</span>
+                            <span class="px-2 py-0.5 rounded bg-slate-950 border border-slate-800 text-[10px] font-mono text-cyan-300">Docker</span>
+                            <span class="px-2 py-0.5 rounded bg-slate-950 border border-slate-800 text-[10px] font-mono text-cyan-300">Linux</span>
+                        </div>
+                    </article>
+
+                    <!-- Project 3 -->
+                    <article class="snap-center flex-shrink-0 w-80 sm:w-96 bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4 backdrop-blur shadow-2xl flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="rounded-xl overflow-hidden border border-slate-800">
+                                <img src="https://placehold.co/800x450/1e293b/38bdf8?text=Custom+API+%26+Database" alt="Custom API and Azure database system diagram" class="w-full h-40 object-cover" loading="lazy" decoding="async">
+                            </div>
+                            <h3 class="text-lg font-bold text-white">Custom API &amp; Database Systems</h3>
+                            <p class="text-xs text-slate-400 leading-relaxed">Created and integrated robust Azure database systems paired with custom backend APIs based on specific client requirements.</p>
+                            <div class="p-3 bg-slate-950/80 rounded-lg text-xs text-slate-300 border border-slate-800">
+                                <strong class="text-cyan-400 block mb-1">Problem Solved:</strong>
+                                Streamlined data retrieval and provided secure, scalable endpoints for front-end custom applications.
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 pt-2">
+                            <span class="px-2 py-0.5 rounded bg-slate-950 border border-slate-800 text-[10px] font-mono text-cyan-300">JavaScript</span>
+                            <span class="px-2 py-0.5 rounded bg-slate-950 border border-slate-800 text-[10px] font-mono text-cyan-300">Azure SQL</span>
+                            <span class="px-2 py-0.5 rounded bg-slate-950 border border-slate-800 text-[10px] font-mono text-cyan-300">REST API</span>
+                        </div>
+                    </article>
+
+                    <!-- Project 4 -->
+                    <article class="snap-center flex-shrink-0 w-80 sm:w-96 bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4 backdrop-blur shadow-2xl flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="rounded-xl overflow-hidden border border-slate-800">
+                                <img src="https://placehold.co/800x450/1e293b/38bdf8?text=E-Wedding+RSVP+System" alt="Glenvee and Micaella wedding invitation web app" class="w-full h-40 object-cover" loading="lazy" decoding="async">
+                            </div>
+                            <h3 class="text-lg font-bold text-white">E-Wedding Invitation &amp; RSVP System</h3>
+                            <p class="text-xs text-slate-400 leading-relaxed">A custom-built interactive wedding platform featuring a real-time countdown, digital RSVP tracking, and event details for a seamless guest experience.</p>
+                            <div class="p-3 bg-slate-950/80 rounded-lg text-xs text-slate-300 border border-slate-800">
+                                <strong class="text-cyan-400 block mb-1">Problem Solved:</strong>
+                                Eliminated physical mail costs and logistical delays while automating RSVP tracking.
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 pt-2">
+                            <span class="px-2 py-0.5 rounded bg-slate-950 border border-slate-800 text-[10px] font-mono text-cyan-300">Maven</span>
+                            <span class="px-2 py-0.5 rounded bg-slate-950 border border-slate-800 text-[10px] font-mono text-cyan-300">Firebase</span>
+                            <span class="px-2 py-0.5 rounded bg-slate-950 border border-slate-800 text-[10px] font-mono text-cyan-300">Vite</span>
+                        </div>
+                    </article>
+
+                    <!-- Project 5 -->
+                    <article class="snap-center flex-shrink-0 w-80 sm:w-96 bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4 backdrop-blur shadow-2xl flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="rounded-xl overflow-hidden border border-slate-800">
+                                <img src="https://placehold.co/800x450/1e293b/38bdf8?text=Remote+Support+Ecosystem" alt="Remote technical support ecosystem for Windows environments" class="w-full h-40 object-cover" loading="lazy" decoding="async">
+                            </div>
+                            <h3 class="text-lg font-bold text-white">Remote Technical Support Ecosystem</h3>
+                            <p class="text-xs text-slate-400 leading-relaxed">A secure, end-to-end remote assistance framework designed for Windows environments, featuring encrypted authentication and diagnostics.</p>
+                            <div class="p-3 bg-slate-950/80 rounded-lg text-xs text-slate-300 border border-slate-800">
+                                <strong class="text-cyan-400 block mb-1">Problem Solved:</strong>
+                                Streamlined troubleshooting for instant remote interventions, reducing downtime and eliminating on-site visits.
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 pt-2">
+                            <span class="px-2 py-0.5 rounded bg-slate-950 border border-slate-800 text-[10px] font-mono text-cyan-300">RDP/AnyDesk</span>
+                            <span class="px-2 py-0.5 rounded bg-slate-950 border border-slate-800 text-[10px] font-mono text-cyan-300">Windows Server</span>
+                            <span class="px-2 py-0.5 rounded bg-slate-950 border border-slate-800 text-[10px] font-mono text-cyan-300">Active Directory</span>
+                        </div>
+                    </article>
+
+                    <!-- Project 6 -->
+                    <article class="snap-center flex-shrink-0 w-80 sm:w-96 bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4 backdrop-blur shadow-2xl flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="rounded-xl overflow-hidden border border-slate-800">
+                                <img src="https://placehold.co/800x450/1e293b/38bdf8?text=Network+Monitoring" alt="Network monitoring and remote support visualization dashboard" class="w-full h-40 object-cover" loading="lazy" decoding="async">
+                            </div>
+                            <h3 class="text-lg font-bold text-white">Enterprise Network Monitoring &amp; Remote Support</h3>
+                            <p class="text-xs text-slate-400 leading-relaxed">A comprehensive network management solution featuring real-time topology visualization, predictive analytics, and secure global access.</p>
+                            <div class="p-3 bg-slate-950/80 rounded-lg text-xs text-slate-300 border border-slate-800">
+                                <strong class="text-cyan-400 block mb-1">Problem Solved:</strong>
+                                Eliminated blind spots and high latency with automated smart-routing and real-time alerts across hybrid cloud environments.
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 pt-2">
+                            <span class="px-2 py-0.5 rounded bg-slate-950 border border-slate-800 text-[10px] font-mono text-cyan-300">Cisco/Ubiquiti</span>
+                            <span class="px-2 py-0.5 rounded bg-slate-950 border border-slate-800 text-[10px] font-mono text-cyan-300">VPN/SD-WAN</span>
+                            <span class="px-2 py-0.5 rounded bg-slate-950 border border-slate-800 text-[10px] font-mono text-cyan-300">AWS/Azure</span>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE & EDUCATION SECTION -->
+        <section id="experience" class="story-beat min-h-screen relative flex items-center justify-center p-6 sm:p-12">
+            <div class="max-w-4xl mx-auto w-full space-y-8">
+                <div class="text-center space-y-3 reveal-item">
+                    <span class="text-xs font-mono text-amber-400 uppercase tracking-widest">[ EXPERIENCE &amp; EDUCATION ]</span>
+                    <h2 class="text-3xl sm:text-5xl font-bold text-white">Work History</h2>
+                </div>
+
+                <div class="space-y-6">
+                    <!-- Timeline Item 1 -->
+                    <div class="reveal-item bg-slate-900/80 border border-slate-800 rounded-2xl p-6 backdrop-blur space-y-3">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                            <h3 class="text-lg font-bold text-cyan-400">IT Support Technician (Tier 2/3 Focus)</h3>
+                            <span class="text-xs font-mono text-slate-400">Henann Group of Resorts | Boracay, Malay, Aklan</span>
+                        </div>
+                        <ul class="list-disc list-inside text-xs sm:text-sm text-slate-300 space-y-2 leading-relaxed">
+                            <li>Managed 10-15 daily inquiries, resolving complex Tier 2/3 Windows Server and network infrastructure issues.</li>
+                            <li>Maintained a fleet of 50+ system units across 7 departments, ensuring 99.9% uptime.</li>
+                            <li>Authored 15+ standard troubleshooting procedures, reducing ticket resolution time by 20%.</li>
+                            <li>Managed precise access control via Active Directory and Entra ID for hotel management systems.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Timeline Item 2 -->
+                    <div class="reveal-item bg-slate-900/80 border border-slate-800 rounded-2xl p-6 backdrop-blur space-y-3">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                            <h3 class="text-lg font-bold text-cyan-400">IT Support Specialist / Instructor</h3>
+                            <span class="text-xs font-mono text-slate-400">LGU Malay College | Aug 2020 - Jan 2023</span>
+                        </div>
+                        <ul class="list-disc list-inside text-xs sm:text-sm text-slate-300 space-y-2 leading-relaxed">
+                            <li>Provided dedicated Tier 1/2 support for campus library servers and managed a 30-workstation laboratory.</li>
+                            <li>Monitored system stability and performed regular maintenance, achieving 24/7 core infrastructure availability.</li>
+                            <li>Delivered technical instruction and responsive assistance to students and staff.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Education Item -->
+                    <div class="reveal-item bg-slate-900/50 border border-slate-800 rounded-xl p-5 backdrop-blur flex justify-between items-center">
+                        <div>
+                            <span class="text-[10px] font-mono text-slate-400 block uppercase">Education</span>
+                            <h4 class="text-sm font-bold text-white">Bachelor of Science in Computer Engineering</h4>
+                        </div>
+                        <span class="text-xs text-slate-400 font-mono">STI College Kalibo</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="story-beat min-h-screen relative flex items-center justify-center p-6 sm:p-12">
+            <div class="max-w-4xl mx-auto w-full space-y-8">
+                <div class="text-center space-y-3 reveal-item">
+                    <span class="text-xs font-mono text-cyan-400 uppercase tracking-widest">[ CONTACT ]</span>
+                    <h2 class="text-3xl sm:text-5xl font-bold text-white">Get In Touch</h2>
+                    <p class="text-slate-400 text-sm max-w-lg mx-auto">
+                        Currently based in Malay, Philippines. Open to new opportunities in IT Administration, Support, and Backend Development.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                    <!-- Form -->
+                    <form id="contact-form" class="reveal-item bg-slate-900/90 border border-slate-800 rounded-2xl p-6 backdrop-blur space-y-4" action="https://formsubmit.co/gdmacasarte@gmail.com" method="POST">
+                        <input type="hidden" name="_subject" value="New message from your portfolio website">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_captcha" value="false">
+                        <div class="sr-only" aria-hidden="true">
+                            <input type="text" name="_honey" tabindex="-1" autocomplete="off">
+                        </div>
+
+                        <div>
+                            <label for="cf-name" class="sr-only">Your Name</label>
+                            <input id="cf-name" type="text" name="name" placeholder="Your Name" autocomplete="name" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500">
+                        </div>
+                        <div>
+                            <label for="cf-email" class="sr-only">Your Email</label>
+                            <input id="cf-email" type="email" name="email" placeholder="Your Email" autocomplete="email" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500">
+                        </div>
+                        <div>
+                            <label for="cf-message" class="sr-only">Your Message</label>
+                            <textarea id="cf-message" name="message" rows="4" placeholder="How can I help you?" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-semibold text-sm transition-all shadow-lg shadow-cyan-900/30">
+                            Send Message
+                        </button>
+                        <p class="text-xs text-center mt-2" id="form-status" role="status" aria-live="polite"></p>
+                    </form>
+
+                    <!-- Contact Details -->
+                    <div class="reveal-item space-y-6 bg-slate-900/60 border border-slate-800 rounded-2xl p-6 backdrop-blur">
+                        <h3 class="text-lg font-bold text-white">Direct Connect</h3>
+                        <div class="space-y-4 text-xs sm:text-sm">
+                            <a href="mailto:gdmacasarte@gmail.com" class="flex items-center gap-3 text-slate-300 hover:text-cyan-400 transition-colors p-3 bg-slate-950 rounded-xl border border-slate-800">
+                                <svg class="w-5 h-5 text-cyan-400 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                                <span>gdmacasarte@gmail.com</span>
+                            </a>
+                            <a href="https://github.com/evildee09-glitch" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-slate-300 hover:text-cyan-400 transition-colors p-3 bg-slate-950 rounded-xl border border-slate-800">
+                                <svg class="w-5 h-5 text-cyan-400 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                                <span>GitHub Profile</span>
+                            </a>
+                            <a href="https://linkedin.com/in/glenvee-macasarte" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-slate-300 hover:text-cyan-400 transition-colors p-3 bg-slate-950 rounded-xl border border-slate-800">
+                                <svg class="w-5 h-5 text-cyan-400 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+                                <span>LinkedIn Profile</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </div>
-</nav>
 
-<header class="hero">
-    <div class="container">
-        <h1>Glenvee Macasarte</h1>
-        <h2>IT Specialist | Backend Developer | System Administrator</h2>
-        <p class="tagline">"Building scalable alert systems, robust infrastructure &amp; cloud solutions"</p>
-        <div class="hero-actions">
-            <a href="#projects" class="btn btn-primary">View Projects</a>
-            <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+    <!-- Footer Status Bar -->
+    <footer class="p-3 bg-slate-950/90 border-t border-slate-800 z-20 flex justify-between items-center text-xs font-mono text-slate-400">
+        <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>&copy; 2026 Glenvee Macasarte — All Rights Reserved</span>
         </div>
-    </div>
-</header>
-
-<main class="container">
-
-    <section id="about" class="section">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-content">
-            <p>I am a highly adaptable IT Support Professional and Developer with a Bachelor of Science in Computer Engineering from STI College Kalibo. I specialize in bridging the gap between infrastructure management and backend development.</p>
-            <p>With extensive experience in Tier 2/3 helpdesk support, Windows/Mac environments, and custom application deployment, I excel at streamlining processes, maintaining 99.9% system uptimes, and architecting reliable cloud and local network solutions.</p>
-
-            <div class="strengths-list">
-                <span class="strength-badge">Complex Troubleshooting</span>
-                <span class="strength-badge">Process Streamlining</span>
-                <span class="strength-badge">Cloud Infrastructure</span>
-                <span class="strength-badge">Access Management</span>
-            </div>
+        <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+            <span>System Status: Online</span>
         </div>
-    </section>
+    </footer>
 
-    <section id="skills" class="section">
-        <h2 class="section-title">Technical Skills</h2>
-        <div class="skills-grid">
-            <div class="skill-category">
-                <h3>Languages</h3>
-                <ul>
-                    <li>Java</li>
-                    <li>JavaScript</li>
-                    <li>SQL</li>
-                    <li>Bash / PowerShell</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3>Tools &amp; OS</h3>
-                <ul>
-                    <li>Docker</li>
-                    <li>Git &amp; GitHub</li>
-                    <li>Linux (Ubuntu)</li>
-                    <li>Windows Server / Mac OS</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3>Cloud &amp; Infrastructure</h3>
-                <ul>
-                    <li>AWS</li>
-                    <li>DigitalOcean</li>
-                    <li>Microsoft Azure</li>
-                    <li>Active Directory / Entra ID</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3>Frameworks &amp; ITSM</h3>
-                <ul>
-                    <li>Spring Boot</li>
-                    <li>RESTful APIs</li>
-                    <li>ITSM Ticketing Systems</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+    <!-- INTERACTION LOGIC -->
+    <script>
+        const scrollViewport = document.getElementById('scrollViewport');
 
-    <section id="projects" class="section">
-        <h2 class="section-title">Projects</h2>
-        <div class="projects-grid">
+        // Scroll Intersection Observer for animation triggers
+        const observerOptions = {
+            root: scrollViewport,
+            threshold: 0.25
+        };
 
-            <article class="project-card">
-                <div class="project-image">
-                    <img src="https://placehold.co/800x450/1e293b/38bdf8?text=Emergency+Alert+System" alt="Emergency Alert System sender and receiver architecture diagram" class="responsive-diagram" loading="lazy" decoding="async">
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">Emergency Alert System (Sender/Receiver)</h3>
-                    <p class="project-desc">A highly responsive alert platform designed to quickly distribute critical information across multiple endpoints.</p>
-                    <div class="project-meta">
-                        <strong>Problem Solved:</strong> Eliminated communication bottlenecks during critical events by automating message dispatch to targeted user groups.
-                    </div>
-                    <div class="tech-tags">
-                        <span class="tech-tag">Java</span>
-                        <span class="tech-tag">Spring Boot</span>
-                        <span class="tech-tag">WebSockets</span>
-                    </div>
-                </div>
-            </article>
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const target = entry.target;
+                if (entry.isIntersecting) {
+                    target.querySelectorAll('.reveal-item').forEach((item, index) => {
+                        setTimeout(() => {
+                            item.classList.add('is-visible');
+                        }, index * 100);
+                    });
+                }
+            });
+        }, observerOptions);
 
-            <article class="project-card">
-                <div class="project-image">
-                    <img src="https://placehold.co/800x450/1e293b/38bdf8?text=Server+Deployment+%26+CI/CD" alt="Docker-based server deployment and CI/CD pipeline diagram" class="responsive-diagram" loading="lazy" decoding="async">
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">Server Deployment &amp; CI/CD</h3>
-                    <p class="project-desc">Automated server provisioning and application deployment utilizing cloud infrastructure to ensure high availability.</p>
-                    <div class="project-meta">
-                        <strong>Problem Solved:</strong> Reduced manual configuration time by 80% and minimized human error during custom application rollouts.
-                    </div>
-                    <div class="tech-tags">
-                        <span class="tech-tag">DigitalOcean</span>
-                        <span class="tech-tag">Docker</span>
-                        <span class="tech-tag">Linux</span>
-                    </div>
-                </div>
-            </article>
-
-            <article class="project-card">
-                <div class="project-image">
-                    <img src="https://placehold.co/800x450/1e293b/38bdf8?text=Custom+API+%26+Database" alt="Custom API and Azure database system diagram" class="responsive-diagram" loading="lazy" decoding="async">
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">Custom API &amp; Database Systems</h3>
-                    <p class="project-desc">Created and integrated robust Azure database systems paired with custom backend APIs based on specific client requirements.</p>
-                    <div class="project-meta">
-                        <strong>Problem Solved:</strong> Streamlined data retrieval and provided secure, scalable endpoints for front-end custom applications.
-                    </div>
-                    <div class="tech-tags">
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">Azure SQL</span>
-                        <span class="tech-tag">REST API</span>
-                    </div>
-                </div>
-            </article>
-
-            <article class="project-card">
-                <div class="project-image">
-                    <img src="https://placehold.co/800x450/1e293b/38bdf8?text=E-Wedding+RSVP+System" alt="Glenvee and Micaella wedding invitation web app" class="responsive-diagram" loading="lazy" decoding="async">
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">E-Wedding Invitation &amp; RSVP System</h3>
-                    <p class="project-desc">A custom-built interactive wedding platform featuring a real-time countdown, digital RSVP tracking, and event details for a seamless guest experience.</p>
-                    <div class="project-meta">
-                        <strong>Problem Solved:</strong> Eliminated the cost and logistical delays of physical mail while providing an automated way to track guest confirmations and dietary requirements.
-                    </div>
-                    <div class="tech-tags">
-                        <span class="tech-tag">Maven</span>
-                        <span class="tech-tag">Firebase</span>
-                        <span class="tech-tag">Vite</span>
-                    </div>
-                </div>
-            </article>
-
-            <article class="project-card">
-                <div class="project-image">
-                    <img src="https://placehold.co/800x450/1e293b/38bdf8?text=Remote+Support+Ecosystem" alt="Remote technical support ecosystem for Windows environments" class="responsive-diagram" loading="lazy" decoding="async">
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">Remote Technical Support Ecosystem</h3>
-                    <p class="project-desc">A secure, end-to-end remote assistance framework designed for Windows environments, featuring encrypted authentication and real-time system diagnostics.</p>
-                    <div class="project-meta">
-                        <strong>Problem Solved:</strong> Streamlined the troubleshooting process to provide instant, secure remote interventions, reducing downtime and eliminating the need for on-site visits.
-                    </div>
-                    <div class="tech-tags">
-                        <span class="tech-tag">RDP/AnyDesk</span>
-                        <span class="tech-tag">Windows Server</span>
-                        <span class="tech-tag">Active Directory</span>
-                        <span class="tech-tag">PowerShell</span>
-                    </div>
-                </div>
-            </article>
-
-            <article class="project-card">
-                <div class="project-image">
-                    <img src="https://placehold.co/800x450/1e293b/38bdf8?text=Network+Monitoring" alt="Network monitoring and remote support visualization dashboard" class="responsive-diagram" loading="lazy" decoding="async">
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">Enterprise Network Monitoring &amp; Remote Support</h3>
-                    <p class="project-desc">A comprehensive network management solution featuring real-time topology visualization, AI-powered predictive analytics, and secure global remote access.</p>
-                    <div class="project-meta">
-                        <strong>Problem Solved:</strong> Eliminated network blind spots and high latency by implementing automated smart-routing and real-time alert systems across hybrid cloud environments.
-                    </div>
-                    <div class="tech-tags">
-                        <span class="tech-tag">Cisco/Ubiquiti</span>
-                        <span class="tech-tag">VPN/SD-WAN</span>
-                        <span class="tech-tag">AWS/Azure</span>
-                    </div>
-                </div>
-            </article>
-
-        </div>
-    </section>
-
-    <section id="experience" class="section">
-        <h2 class="section-title">Work History</h2>
-        <div class="timeline">
-
-            <div class="timeline-item">
-                <div class="timeline-role">IT Support Technician (Tier 2/3 Focus)</div>
-                <div class="timeline-company">Henann Group of Resorts | Boracay, Malay, Aklan</div>
-                <ul class="timeline-details">
-                    <li>Managed 10-15 daily inquiries, resolving complex Tier 2/3 Windows Server and network infrastructure issues.</li>
-                    <li>Maintained a fleet of 50+ system units across 7 departments, ensuring 99.9% uptime.</li>
-                    <li>Authored 15+ standard troubleshooting procedures, reducing ticket resolution time by 20%.</li>
-                    <li>Managed precise access control via Active Directory and Entra ID for hotel management systems.</li>
-                </ul>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-role">IT Support Specialist / Instructor</div>
-                <div class="timeline-company">LGU Malay College | Balusbos, Malay, Aklan | Aug 2020 - Jan 2023</div>
-                <ul class="timeline-details">
-                    <li>Provided dedicated Tier 1/2 support for campus library servers and managed a 30-workstation laboratory.</li>
-                    <li>Monitored system stability and performed regular maintenance, achieving 24/7 core infrastructure availability.</li>
-                    <li>Delivered technical instruction and responsive assistance to students and staff.</li>
-                </ul>
-            </div>
-
-        </div>
-    </section>
-
-    <section id="education" class="section">
-        <h2 class="section-title">Education</h2>
-        <ul class="edu-list">
-            <li><strong>Bachelor of Science in Computer Engineering</strong> — STI College Kalibo</li>
-        </ul>
-    </section>
-
-    <section id="contact" class="section">
-        <h2 class="section-title">Get In Touch</h2>
-        <p class="contact-subtitle">Currently based in Malay, Philippines. Open to new opportunities in IT Administration, Support, and Backend Development.</p>
-
-        <div class="contact-grid">
-            <form id="contact-form" class="contact-form"
-                  action="https://formsubmit.co/gdmacasarte@gmail.com" method="POST">
-                <input type="hidden" name="_subject" value="New message from your portfolio website">
-                <input type="hidden" name="_template" value="table">
-                <input type="hidden" name="_captcha" value="false">
-                <div class="hp-field" aria-hidden="true">
-                    <input type="text" name="_honey" tabindex="-1" autocomplete="off">
-                </div>
-
-                <div class="form-group">
-                    <label for="cf-name" class="sr-only">Your Name</label>
-                    <input id="cf-name" type="text" name="name" placeholder="Your Name" autocomplete="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="cf-email" class="sr-only">Your Email</label>
-                    <input id="cf-email" type="email" name="email" placeholder="Your Email" autocomplete="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="cf-message" class="sr-only">Your Message</label>
-                    <textarea id="cf-message" name="message" rows="5" placeholder="How can I help you?" required></textarea>
-                </div>
-                <button type="submit" class="submit-btn">Send Message</button>
-                <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
-            </form>
-
-            <div class="contact-info">
-                <h3>Contact Details</h3>
-                <div class="contact-links-vertical">
-                    <a href="mailto:gdmacasarte@gmail.com" class="contact-link">
-                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                        gdmacasarte@gmail.com
-                    </a>
-                    <a href="https://github.com/evildee09-glitch" target="_blank" rel="noopener noreferrer" class="contact-link">
-                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                        GitHub Profile
-                    </a>
-                    <a href="https://linkedin.com/in/glenvee-macasarte" target="_blank" rel="noopener noreferrer" class="contact-link">
-                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
-                        LinkedIn Profile
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-</main>
-
-<footer class="main-footer">
-    <div class="container">
-        <div class="footer-content">
-            <div class="footer-brand">
-                <h3>GM<span>.</span></h3>
-                <p>&copy; 2026 Glenvee Macasarte</p>
-            </div>
-
-            <div class="system-status">
-                <span class="status-dot"></span>
-                System Status: Online
-            </div>
-
-            <div class="footer-socials">
-                <a href="https://github.com/evildee09-glitch" target="_blank" rel="noopener noreferrer">GitHub</a>
-                <a href="https://linkedin.com/in/glenvee-macasarte" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                <a href="mailto:gdmacasarte@gmail.com">Email</a>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<script>
-(function () {
-    var form = document.getElementById('contact-form');
-    var status = document.getElementById('form-status');
-    if (!form || !window.fetch) return;
-
-    form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        var btn = form.querySelector('.submit-btn');
-        var label = btn.textContent;
-        btn.disabled = true;
-        btn.textContent = 'Sending...';
-        status.className = 'form-status';
-        status.textContent = '';
-
-        fetch('https://formsubmit.co/ajax/gdmacasarte@gmail.com', {
-            method: 'POST',
-            headers: { 'Accept': 'application/json' },
-            body: new FormData(form)
-        })
-        .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, data: d }; }); })
-        .then(function (res) {
-            if (res.ok && String(res.data.success) !== 'false') {
-                status.className = 'form-status ok';
-                status.textContent = 'Thank you! Your message has been sent. I will get back to you soon.';
-                form.reset();
-            } else {
-                throw new Error('failed');
-            }
-        })
-        .catch(function () {
-            status.className = 'form-status err';
-            status.innerHTML = 'Sorry, something went wrong. Please email me directly at <a href="mailto:gdmacasarte@gmail.com">gdmacasarte@gmail.com</a>.';
-        })
-        .finally(function () {
-            btn.disabled = false;
-            btn.textContent = label;
+        document.querySelectorAll('.story-beat').forEach(beat => {
+            revealObserver.observe(beat);
         });
-    });
-})();
-</script>
+
+        // FormSubmit AJAX submission handler
+        (function () {
+            var form = document.getElementById('contact-form');
+            var status = document.getElementById('form-status');
+            if (!form || !window.fetch) return;
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                var btn = form.querySelector('button[type="submit"]');
+                var label = btn.textContent;
+                btn.disabled = true;
+                btn.textContent = 'Sending...';
+                status.className = 'text-xs text-center mt-2';
+                status.textContent = '';
+
+                fetch('https://formsubmit.co/ajax/gdmacasarte@gmail.com', {
+                    method: 'POST',
+                    headers: { 'Accept': 'application/json' },
+                    body: new FormData(form)
+                })
+                .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, data: d }; }); })
+                .then(function (res) {
+                    if (res.ok && String(res.data.success) !== 'false') {
+                        status.className = 'text-xs text-center mt-2 text-emerald-400';
+                        status.textContent = 'Thank you! Your message has been sent. I will get back to you soon.';
+                        form.reset();
+                    } else {
+                        throw new Error('failed');
+                    }
+                })
+                .catch(function () {
+                    status.className = 'text-xs text-center mt-2 text-rose-400';
+                    status.innerHTML = 'Sorry, something went wrong. Please email directly at <a href="mailto:gdmacasarte@gmail.com" class="underline">gdmacasarte@gmail.com</a>.';
+                })
+                .finally(function () {
+                    btn.disabled = false;
+                    btn.textContent = label;
+                });
+            });
+        })();
+    </script>
 </body>
 </html>
